@@ -1,6 +1,9 @@
 # client-server
 Python based Websockets client-server with docker containerization
 
+## Running the code
+docker compose up --build
+
 ## Creating docker network
 docker network create client-server
 
