@@ -2,7 +2,9 @@
 Python based Websockets client-server with docker containerization
 
 ## Running the code
-docker compose up --build
+There are 2 ways you can run the code 
+- client-server> docker compose up --build
+- client-server> ./run-client-server.sh
 
 ## Creating docker network
 docker network create client-server
