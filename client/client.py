@@ -1,15 +1,42 @@
+import os
 import asyncio
 import websockets
+
+client_id_str=os.environ.get('CLIENT_ID', '1')
+client_id=eval(client_id_str)
+host_name=os.environ.get('HOST_NAME', 'localhost')
 
 async def client():
     """
     Client code to connect to the WebSocket server.
     """
-    async with websockets.connect("ws://echo_server:8765") as websocket:
-        message = input("Enter a message: ")
+    host_url = "ws://" + host_name + ":8765"
+    print("inside client")
+    print(host_url)
+    async with websockets.connect(host_url) as websocket:
+#        message = input("Enter a message: ")
+        input_file = '/client/data/input.txt'
+        if os.path.exists(input_file):
+            print("File exists")
+        else:
+            print("File does not exist")
+        file = open(input_file, 'r')
+        # Get the lines from the file
+        lines = file.readlines()
+        file.close()
+        message = lines[client_id - 1].strip()
+        print(message)
         await websocket.send(message)
+
+        outfile_name="/client/data/output" + client_id_str + ".json"
+        print(outfile_name)
+        file = open(outfile_name, "w")
         while True:
             response = await websocket.recv()
-            print(f"Received from server: {response}")
+            print(f"client: {client_id} {response}")
+            file.write(response + "\n")
+#            print(f"Received from server: {response}")
+            break
+        file.close()
 
 asyncio.get_event_loop().run_until_complete(client())
