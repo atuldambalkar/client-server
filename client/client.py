@@ -11,7 +11,6 @@ async def client():
     Client code to connect to the WebSocket server.
     """
     host_url = "ws://" + host_name + ":8765"
-    print("inside client")
     print(host_url)
     async with websockets.connect(host_url) as websocket:
 #        message = input("Enter a message: ")
