@@ -5,6 +5,7 @@ import websockets
 client_id_str=os.environ.get('CLIENT_ID', '1')
 client_id=eval(client_id_str)
 host_name=os.environ.get('HOST_NAME', 'localhost')
+input_dir=os.environ.get('INPUT_DIR', './client')
 
 async def client():
     """
@@ -14,7 +15,7 @@ async def client():
     print(host_url)
     async with websockets.connect(host_url) as websocket:
 #        message = input("Enter a message: ")
-        input_file = '/client/data/input.txt'
+        input_file = input_dir + "/" + "input.txt"
         if os.path.exists(input_file):
             print("File exists")
         else:
@@ -27,7 +28,7 @@ async def client():
         print(message)
         await websocket.send(message)
 
-        outfile_name="/client/data/output" + client_id_str + ".json"
+        outfile_name= input_dir + "/output" + client_id_str + ".json"
         print(outfile_name)
         file = open(outfile_name, "w")
         while True:

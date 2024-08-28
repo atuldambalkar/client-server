@@ -16,6 +16,7 @@ services:
     environment: 
       - CLIENT_ID=1
       - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
     depends_on:
       - server
 
@@ -27,6 +28,7 @@ services:
     environment: 
       - CLIENT_ID=2
       - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
     depends_on:
       - server
 
@@ -38,6 +40,7 @@ services:
     environment: 
       - CLIENT_ID=3
       - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
     depends_on:
       - server
 
@@ -49,6 +52,7 @@ services:
     environment: 
       - CLIENT_ID=4
       - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
     depends_on:
       - server
 
@@ -60,6 +64,91 @@ services:
     environment: 
       - CLIENT_ID=5
       - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
+    depends_on:
+      - server
+
+  client6:
+    build: client/
+    command: python ./client.py
+    volumes:
+      - /Users/datumo/Documents/codebase/client-server/client:/client/data
+    environment: 
+      - CLIENT_ID=6
+      - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
+    depends_on:
+      - server
+
+  client7:
+    build: client/
+    command: python ./client.py
+    volumes:
+      - /Users/datumo/Documents/codebase/client-server/client:/client/data
+    environment: 
+      - CLIENT_ID=7
+      - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
+    depends_on:
+      - server
+
+  client8:
+    build: client/
+    command: python ./client.py
+    volumes:
+      - /Users/datumo/Documents/codebase/client-server/client:/client/data
+    environment: 
+      - CLIENT_ID=8
+      - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
+    depends_on:
+      - server
+
+  client9:
+    build: client/
+    command: python ./client.py
+    volumes:
+      - /Users/datumo/Documents/codebase/client-server/client:/client/data
+    environment: 
+      - CLIENT_ID=9
+      - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
+    depends_on:
+      - server
+
+  client10:
+    build: client/
+    command: python ./client.py
+    volumes:
+      - /Users/datumo/Documents/codebase/client-server/client:/client/data
+    environment: 
+      - CLIENT_ID=10
+      - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
+    depends_on:
+      - server
+
+  client11:
+    build: client/
+    command: python ./client.py
+    volumes:
+      - /Users/datumo/Documents/codebase/client-server/client:/client/data
+    environment: 
+      - CLIENT_ID=11
+      - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
+    depends_on:
+      - server
+
+  client12:
+    build: client/
+    command: python ./client.py
+    volumes:
+      - /Users/datumo/Documents/codebase/client-server/client:/client/data
+    environment: 
+      - CLIENT_ID=12
+      - HOST_NAME=echo_server
+      - INPUT_DIR=/client/data
     depends_on:
       - server
 
